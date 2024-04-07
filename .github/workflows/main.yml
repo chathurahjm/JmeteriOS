@@ -27,15 +27,13 @@ jobs:
     - name: Move PluginsManagerCMD
       run: |
         mv PluginsManagerCMD.sh apache-jmeter-5.6.3/bin
-        cd "apache-jmeter-5.6.3/bin"
-        ls
-        cd ..
-        cd ..
+       
         
 
     - name: Install JMeter Plugins
       run: |
-        sudo ./apache-jmeter-5.6.3/bin/PluginsManagerCMD.sh install \
+        cd "apache-jmeter-5.6.3/bin"
+        sudo PluginsManagerCMD.sh install \
           jpgc-tst=0.8 \
           jpgc-standard=1.4 \
           jpgc-graphs-basic=2.0 \
