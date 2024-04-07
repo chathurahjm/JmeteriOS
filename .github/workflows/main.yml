@@ -18,14 +18,20 @@ jobs:
       run: |
         wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz
         tar -xf apache-jmeter-5.6.3.tgz
-    - name: Install JMeter Plugins Manager
+   
+    - name: Install JMeter Plugin Manager
       run: |
-            sudo wget https://repo1.maven.org/maven2/kg/apc/cmdrunner/2.3/cmdrunner-2.3.jar -P ./apache-jmeter-5.6.3/lib/
-            sudo wget https://repo1.maven.org/maven2/kg/apc/jmeter-plugins-manager/1.10/jmeter-plugins-manager-1.10.jar -P ./apache-jmeter-5.6.3/lib/ext
-            #cd "apache-jmeter-5.6.3/lib/"
-            #ls
-            sudo java -Djava.awt.headless=true $JVM_ARGS -jar ./apache-jmeter-5.6.3/lib/cmdrunner-2.3.jar --tool org.jmeterplugins.repository.PluginManagerCMD install jpgc-casutg
-            #sudo ./apache-jmeter-5.6.3/bin/PluginsManagerCMD.sh install jpgc-casutg
+        curl -L https://jmeter-plugins.org/get/ -o plugins-manager.jar
+        mv plugins-manager.jar apache-jmeter-5.6.3/lib/ext/
+
+    - name: Install JMeter Plugins
+      run: |
+        apache-jmeter-5.6.3/bin/PluginsManagerCMD.sh install \
+          jpgc-tst=0.8 \
+          jpgc-standard=1.4 \
+          jpgc-graphs-basic=2.0 \
+          jpgc-casutg=2.9
+    
     - name: Run JMeter Test
       #if: always()
       run: |
