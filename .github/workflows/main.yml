@@ -27,7 +27,7 @@ jobs:
 
     - name: Install JMeter Plugins
       run: |
-        ./apache-jmeter-5.6.3/bin/PluginsManagerCMD.sh install \
+        sudo ./apache-jmeter-5.6.3/bin/PluginsManagerCMD.sh install \
           jpgc-tst=0.8 \
           jpgc-standard=1.4 \
           jpgc-graphs-basic=2.0 \
