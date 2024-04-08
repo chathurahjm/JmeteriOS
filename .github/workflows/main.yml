@@ -23,6 +23,7 @@ jobs:
       run: |
         curl -L https://jmeter-plugins.org/get/ -o plugins-manager.jar
         mv plugins-manager.jar apache-jmeter-5.6.3/lib/ext/
+        sudo java -cp ./apache-jmeter-5.6.3/lib/ext/plugins-manager.jar org.jmeterplugins.repository.PluginManagerCMDInstaller
 
     - name: Move PluginsManagerCMD
       run: |
