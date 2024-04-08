@@ -37,8 +37,8 @@ jobs:
         cd "apache-jmeter-5.6.3/bin"
         pwd
         ls
-        PluginsManagerCMD.sh status
-        PluginsManagerCMD.sh install jpgc-casutg
+        ./PluginsManagerCMD.sh status
+        ./PluginsManagerCMD.sh install jpgc-casutg
 
 
        
