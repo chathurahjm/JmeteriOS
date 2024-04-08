@@ -25,20 +25,14 @@ jobs:
         mv plugins-manager.jar apache-jmeter-5.6.3/lib/ext/
         sudo java -cp ./apache-jmeter-5.6.3/lib/ext/plugins-manager.jar org.jmeterplugins.repository.PluginManagerCMDInstaller
 
-    - name: Move PluginsManagerCMD
-      run: |
-       cd "apache-jmeter-5.6.3/bin"
-       ls
-        
-
     - name: Install JMeter Plugins
       run: |
         pwd
         cd "apache-jmeter-5.6.3/bin"
         pwd
         ls
-        ./PluginsManagerCMD.sh status
-        ./PluginsManagerCMD.sh install jpgc-casutg
+        sudo ./PluginsManagerCMD.sh status
+        sudo ./PluginsManagerCMD.sh install jpgc-casutg
 
 
        
