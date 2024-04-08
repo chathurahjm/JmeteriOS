@@ -27,16 +27,17 @@ jobs:
 
     - name: Move PluginsManagerCMD
       run: |
-        mv ./PluginsManagerCMD.sh apache-jmeter-5.6.3/bin
-        chmod +x ./apache-jmeter-5.6.3/bin/PluginsManagerCMD.sh
-       
+       cd "apache-jmeter-5.6.3/bin"
+       ls
         
 
     - name: Install JMeter Plugins
       run: |
-        cd "apache-jmeter-5.6.3/lib"
-        ls
-        java -Djava.awt.headless=true $JVM_ARGS -jar cmdrunner-2.3.jar --tool org.jmeterplugins.repository.PluginManagerCMD install jpgc-casutg 
+        pwd
+        #cd "apache-jmeter-5.6.3/lib"
+        PluginsManagerCMD.sh status
+
+       
     
     - name: Run JMeter Test
       #if: always()
