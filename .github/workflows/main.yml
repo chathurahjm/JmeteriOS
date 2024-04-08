@@ -25,6 +25,13 @@ jobs:
         mv plugins-manager.jar apache-jmeter-5.6.3/lib/ext/
         sudo java -cp ./apache-jmeter-5.6.3/lib/ext/plugins-manager.jar org.jmeterplugins.repository.PluginManagerCMDInstaller
 
+    - name: cmdrunner
+      run: |
+        mv cmdrunner-2.3.jar apache-jmeter-5.6.3/lib/
+        cd "apache-jmeter-5.6.3/lib/"
+        pwd
+        ls
+
     - name: Install JMeter Plugins
       run: |
         pwd
