@@ -34,8 +34,10 @@ jobs:
     - name: Install JMeter Plugins
       run: |
         pwd
-        #cd "apache-jmeter-5.6.3/lib"
+        cd "apache-jmeter-5.6.3/bin"
         PluginsManagerCMD.sh status
+        PluginsManagerCMD.sh install jpgc-casutg
+
 
        
     
